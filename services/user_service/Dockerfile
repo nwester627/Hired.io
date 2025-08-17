@@ -1,11 +1,22 @@
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 WORKDIR /app
 
-COPY requirements.txt .
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libpq-dev \
+    && rm -rf /var/lib/apt/lists/*
 
+# Copy requirements first to leverage Docker cache
+COPY ./services/user_service/requirements.txt .
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-COPY ./app /app
+# Copy the main application
+COPY ./services/user_service/app ./app
+COPY ./main.py .
+COPY ./alembic.ini .
+COPY ./alembic ./alembic
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Run migrations and start the application
+CMD ["/bin/bash", "-c", "alembic upgrade head && uvicorn main:app --host 0.0.0.0 --port 8000"]

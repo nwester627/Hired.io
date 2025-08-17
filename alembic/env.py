@@ -27,10 +27,18 @@ target_metadata = Base.metadata
 
 def run_migrations_online() -> None:
     """Run migrations in 'online' mode by connecting to the database."""
-    connectable = engine_from_config(
-        config.get_section(config.config_ini_section, {}),
-        prefix="sqlalchemy.",
-        poolclass=pool.NullPool,
+    import psycopg2
+    from sqlalchemy import create_engine
+
+    connectable = create_engine(
+        "postgresql://",
+        creator=lambda: psycopg2.connect(
+            user='postgres',
+            password='Minixs62795@@',
+            host='127.0.0.1',
+            port='5433',
+            database='hired_db'
+        )
     )
 
     with connectable.connect() as connection:
