@@ -90,7 +90,7 @@ npm start
 The application should now be accessible in your web browser at http://localhost:3000 (or whatever port your React app runs on).
 
 Technologies Used
-Backend: Python, Flask
+Backend: Python, FastAPI
 
 Database: PostgreSQL
 
