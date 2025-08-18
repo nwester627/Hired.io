@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/hired.io/static/css/main.92f63f04.css",
+    "main.js": "/hired.io/static/js/main.8ee0cf93.js",
+    "static/js/453.fa3f1af4.chunk.js": "/hired.io/static/js/453.fa3f1af4.chunk.js",
+    "index.html": "/hired.io/index.html",
+    "main.92f63f04.css.map": "/hired.io/static/css/main.92f63f04.css.map",
+    "main.8ee0cf93.js.map": "/hired.io/static/js/main.8ee0cf93.js.map",
+    "453.fa3f1af4.chunk.js.map": "/hired.io/static/js/453.fa3f1af4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.92f63f04.css",
+    "static/js/main.8ee0cf93.js"
+  ]
+}
