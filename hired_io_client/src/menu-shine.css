@@ -1,0 +1,38 @@
+/* Shimmer animation for gradient text */
+@keyframes shine {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.menu-shine {
+  color: #1c375b;
+  transition: color 0.2s;
+}
+.menu-shine:hover {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    rgba(205, 66, 54, 0.8) 0%,
+    rgba(255, 184, 107, 0.8) 40%,
+    #fff 50%,
+    rgba(255, 184, 107, 0.8) 60%,
+    rgba(205, 66, 54, 0.8) 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+.menu-shine {
+  /* ...existing code... */
+}
+.menu-shine:hover {
+  animation: shine 1.5s linear infinite;
+}
